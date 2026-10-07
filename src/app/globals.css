@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #071428;
+  --color-navy-2: #0b1d36;
+  --color-navy-3: #123056;
+  --color-ink: #102033;
+  --color-muted: #5d6f86;
+  --color-line: #d5e0ec;
+  --color-canvas: #e7eef6;
+  --color-panel: #f7fafc;
+  --color-accent: #12b5a7;
+  --color-accent-2: #0d9488;
+  --color-gold: #d4a24a;
+  --color-danger: #dc4a4a;
+  --color-ok: #1f9d6a;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #9bb0c7 transparent;
+}
+
+.crm-grid {
+  background-image:
+    linear-gradient(rgba(18, 181, 167, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 181, 167, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.score-ring {
+  background: conic-gradient(var(--tone) calc(var(--p) * 1%), #dbe4ee 0);
+}
+
+@keyframes callPop {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes queueScan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-sheet {
+    display: block !important;
+    box-shadow: none !important;
+  }
+}
